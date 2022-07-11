@@ -1,6 +1,7 @@
 program wybuch;
 uses crt,graph,graph2;
 
+
 procedure bum(x,y:integer;n:word);
 var i:word;
     oldcolor:word;
@@ -36,13 +37,17 @@ var i:word;
 begin
 {sound(50);}
 if n>1000 then n:=1000;
+
 oldcolor:=getcolor;
 lockolor:=color[white];
 modmax:=maxcolor+1;
+
 if lockolor=0 then lockolor:=1;
+
 setcolor(lockolor);
 setwritemode(xorput);
 ne:=n div 5;
+
 for i:=0 to n do
     with point[i] do
     begin

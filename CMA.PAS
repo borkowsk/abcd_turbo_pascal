@@ -1,5 +1,6 @@
 program ta_cma;
 Uses graph,graph2;
+
 Type typwzoru=array[0..15] of word;
      image=record
            len,width:word;
@@ -18,6 +19,7 @@ const
      wzor3:typwzoru=(
      $AAA1,$5552,$AAa3,$5554,$AAA5,$5556,$AAA7,$5558,
      $AAA9,$555a,$AAAb,$555c,$AAAd,$555e,$AAAf,$5550);
+     
 Type Cma=object
      X,Y,D:integer;
      sit:boolean;
@@ -27,7 +29,7 @@ Type Cma=object
      constructor init(ld:integer);
      procedure   sets(lx,ly:integer);
      procedure   put(lx,ly:integer);
-     procedure  uput;
+     procedure   uput;
      end;
 
 constructor cma.init;
@@ -58,6 +60,7 @@ p:=d div 2;
 line(x,q,x+p,q-p);
 line(x,q,x-p,q-p);
 setwritemode(NormalPut);
+
 for i:=0 to d-1 do
     begin
     { q powinno byc < niz y }
@@ -71,6 +74,7 @@ for i:=0 to d-1 do
     line(x-i,q,x-i,y);
     line(x+i,q,x+i,y);
     end;
+    
 sit:=true;
 end;
 
@@ -81,25 +85,30 @@ d1:=d div 2;
 sit:=false;
 bar(X-d1,y,x+d1,y+d);
 end;
+
 const pojemnosc=10;
 var a:word;
   cmy:array[1..pojemnosc] of cma;
+  
 begin
 randomize;
 graph2testinit('c:\tup\bin');
+
 for a:=1 to mx do
   if a mod 200 >100 then
     begin
     {setlinestyle(UserBitLn,random($FFFF),normwidth);}
     line(a,1,a,my);
     end;
+    
 for a:=1 to pojemnosc do
     Cmy[a].init(32);
 
 for a:=1 to pojemnosc do
     Cmy[a].put(random(mx),random(my));
+    
 repeat
 cmy[1].uput;
-put(random(
+{put(random(}
 until false;
 end.
